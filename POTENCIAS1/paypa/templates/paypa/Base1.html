@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}{% endblock %} | EL PODER DE LAS TRES POTENCIAS</title>
+
+    <!-- Estilos y fuentes del template  -->
+    {% load static %}
+    <link href="{% static 'paypa/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'paypa/vendor/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="{% static 'paypa/css/clean-blog.min.css'%}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menú
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Portada</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Historia' %}">Historia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Horoscopo' %}">Horoscopo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Tarot' %}">Tarot</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Quiromancia' %}">Quiromancia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Servicios' %}">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Contacto' %}">Contacto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Membresias' %}">Membresias</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Pagos' %}">Pagos</a>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cabecera -->
+    <!-- <header class="masthead" style="background-image: url('{% static 'nucleo/img/TRES_POTENCIAS1.jpg'%}')">-->
+    <header class="masthead" style="background-image: url('{% block background%}{% endblock %}')" width="200" height="200">  
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-15 col-md-12 mx-auto">
+            <div class="site-heading">
+              {% block headers%}{% endblock%} 
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido -->
+    <div class="container">
+    {% block content %}{% endblock %}
+    </div>
+    <!-- para que salga la rayita abajo de cada vista-->
+    <hr>
+
+    <!--{% if request.path != "/" %}<hr>{% endif %}
+    {{request.path}}-->
+    
+    <!-- Pié de página -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/channel/UCCtyBwRXRL2bjlj3zwZ43dA/videos">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/channel/UCCtyBwRXRL2bjlj3zwZ43dA/videos">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2022 ·EL PODER DE LAS TRES POTENCIAS (LE TAROT) </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap y Javascripts -->
+    <script src="{% static 'paypa/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'paypa/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'paypa/js/clean-blog.min.js'%}"></script>
+
+  </body>
+
+</html>

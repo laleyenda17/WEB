@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <script>
+        function token(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = token('csrftoken');
+</script>
+</head>
+
+{% block content %}
+<body>
+    <div class="col-lg-12 col-md-4 offset-lg-2">
+    <div id="paypal-button-container"></div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=AS7R7uPqn3QIXmmcDCPLWDIY6DaBFYi4boaaFVRgfeV_0Lk6dPBplBS1FBtPnyytzwTwnnBaxspze1yb"> // Required. Replace YOUR_CLIENT_ID with your sandbox client ID.
+    </script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+            // This function sets up the details of the transaction, including the amount and line item details.
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '100.00'
+                    }
+                }]
+            });
+            },
+            onApprove: function(data) {
+                //return actions.order.capture().then(function(details){
+                return fetch('/Pa/', {
+                    method:'POST',
+                    headers: {
+                    'content-type': 'application/json',
+                    'X-CSRFToken':csrftoken
+                    },
+                    body: JSON.stringify({
+                    orderID: data.orderID
+                    })
+                }).then(function(res) {
+                    return res.json();
+                }).then(function(details) {
+                    alert('Transaction approved by ' + details.payer_given_name);
+                })    
+            }
+        }).render('#paypal-button-container');
+        //This function displays Smart Payment Buttons on your web page.
+    </script>
+</body>
+{% endblock %}

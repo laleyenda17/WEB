@@ -1,0 +1,23 @@
+{% extends 'paypa/Base1.html' %}
+{% block title %}Quiromancia{% endblock %}
+{% block background %}{% load static %}{% static 'paypa/img/Quiromancia1.jpg'%}{% endblock%}
+{% block headers%}
+
+<h2>EL PODER DE LAS TRES POTENCIAS</h2>
+<span class="subheading">Tu palma de la mano guarda muchos secretos, dejanos decifrarlos, te esperamos  </span>
+{% endblock%} 
+{% block content %}
+<div class="row">
+<h2>Que es? </h2>
+<p> La palabra Quiromancia viene del griego  Khèir =mano y mantèia=adivinacion. Esta es la profesion de entender el significado de las lineas de las manos para poder predecir el futuro, salud, prosperidad y amor </p>
+<div class="col-lg-5 col-md-4 offset-lg-3">
+<img class="img-fluid avatar" src="{% static 'paypa/img/Quiromancia2.jpg'%}" alt="">
+</div>
+<div class="col-lg-7 col-md-6 offset-lg-2">
+<h4 class="section-heading"> Quieres saber el significado de las lineas de tus manos? </h4>
+<ul>
+<li><a href="http://127.0.0.1:8000/adquieralo4/">Lectura de palmas por solo $ 9.99 USD</a></li>
+</ul>
+</div>
+</div>
+{% endblock %}

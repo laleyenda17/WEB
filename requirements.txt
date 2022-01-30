@@ -1,0 +1,5 @@
+Pillow==9.0.0
+django==4.0
+django-ckeditor==6.2.0
+paypal==1.2.5
+paypal-checkout-serversdk==1.0.1

@@ -1,0 +1,47 @@
+{% extends 'paypa/Base1.html' %}
+{% block title %}Pagos{% endblock %}
+{% block background %}{% load static %}{% static 'paypa/img/PAGOS5.jpg'  %}{% endblock%}
+{% block headers%}
+<p> <br><br><br></p>
+<h2>EL PODER DE LAS TRES POTENCIAS</h2>
+<span class="subheading">tenemos varias formas de hacer los pagos para tu comodidad</span>
+<p> <br></p>
+{% endblock%} 
+
+
+{% block content %}
+<div class="row">
+<h2>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Forma de pagos </h2> 
+
+<div class="col-lg-17 col-md-12"> 
+<p> <br></p>
+</div>
+<div class="col-lg-4 col-md-4 offset-lg-0">
+<img class="img-fluid avatar" src="{% static 'paypa/img/PAYPAL.jpg'%}" alt=" ">
+</div>
+<div class="col-lg-4 col-md-4 offset-lg-0">
+<img class="img-fluid avatar" src="{% static 'paypa/img/MASTERCARD.jpg'%}" alt=" ">
+</div>
+<div class="col-lg-4 col-md-4 offset-lg-0">
+<img class="img-fluid avatar" src="{% static 'paypa/img/VISA.jpg'%}" alt=" ">
+</div>
+<div class="col-lg-4 col-md-4 offset-lg-0">
+<img class="img-fluid avatar" src="{% static 'paypa/img/DAVIVIENDA.jpg'%}" alt=" ">
+</div>
+<div class="col-lg-4 col-md-4 offset-lg-0">
+<img class="img-fluid avatar" src="{% static 'paypa/img/BANCOLOMBIA.jpg'%}" alt=" ">
+</div>
+
+<!--<div class="col-lg-17 col-md-18"> 
+<p> Tambien recibimos trnasferencias bancarias de bancos como:</p>
+<ul>
+<li><a href="">Davivienda</a></li>
+<li><a href="">Bancolombia</a></li>
+<li><a href="">Scotiabank</a></li> 
+</ul>
+</div>
+</div>-->
+
+
+
+{% endblock %}
